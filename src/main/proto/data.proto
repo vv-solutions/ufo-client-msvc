@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "dk.vv.ufo.server.msvc.grpc";
+option java_outer_classname = "DataGrpcProto";
+
+service DataGrpc {
+  //  rpc GetData(Empty) returns (DataCollection);
+  //  rpc GetDataSingle(Empty) returns (Data);
+  rpc GetNumber(number) returns (number);
+  rpc GetText(empty) returns (text);
+}
+message empty {
+}
+
+message number {
+  int32 data = 1;
+}
+
+message text {
+  string data = 1;
+}
+
+//message Data{
+//  string stringData=1;
+//  int32 integerData = 2;
+//  float floatData = 3;
+//  bool booleanData = 4;
+//}
+
+//message DataCollection {
+//  repeated Data data = 1;
+//}
+
+
