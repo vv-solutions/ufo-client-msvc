@@ -8,8 +8,6 @@ quarkus:
     rest-service:
       url: http://${UFO_SERVER_URL}:${UFO_SERVER_PORT}
   grpc:
-    server:
-      use-separate-server: false
     clients:
       dataGrpc:
         host: ${UFO_SERVER_URL}

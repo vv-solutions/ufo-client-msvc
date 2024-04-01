@@ -1,19 +1,16 @@
 package dk.vv.ufo.client.msvc.rest;
 
-import dk.vv.ufo.client.msvc.dtos.NumberDTO;
-import dk.vv.ufo.client.msvc.dtos.TextDTO;
+import dk.vv.ufo.client.msvc.dtos.ComplexDTO;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
+import org.jboss.resteasy.reactive.NoCache;
 
-import javax.xml.crypto.Data;
-import java.awt.*;
 import java.util.List;
 
-//@RegisterRestClient(baseUri = "http://localhost:8081")
 
 @RegisterRestClient(configKey = "rest-service")
 @Produces(MediaType.APPLICATION_JSON)
@@ -21,11 +18,14 @@ import java.util.List;
 public interface RestService {
 
     @GET
-    @Path("number/{number}")
-    NumberDTO getNumber(@PathParam("number") int number);
+    @Path("number/{count}")
+    @NoCache
+    List<Integer> getNumber(@PathParam("count") int count);
+
 
     @GET
-    @Path("text")
-    TextDTO getText();
+    @Path("complex/{count}")
+    @NoCache
+    List<ComplexDTO> getComplex(@PathParam("count") int count);
 
 }
