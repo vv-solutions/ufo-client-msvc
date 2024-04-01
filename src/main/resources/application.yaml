@@ -12,3 +12,4 @@ quarkus:
       dataGrpc:
         host: ${UFO_SERVER_URL}
         port: ${UFO_SERVER_PORT}
+        max-inbound-message-size: 160800000
